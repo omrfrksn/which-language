@@ -1,0 +1,138 @@
+PROJECT: mini-scoreboard
+AUTHOR: Ömer Faruk Şen (251478117)
+VERSION: v1
+DATE: 2026-03-30
+
+========================================
+OVERVIEW
+========================================
+
+mini-scoreboard is a command-line football league tracker.
+The user enters 10 teams at the start of the season.
+Each week, some matches are played and the user enters the scores.
+By the end of the season, every team will have played against
+every other team exactly once. (10 teams = 45 matches total)
+
+========================================
+SEASON STRUCTURE
+========================================
+
+- Total teams     : 10
+- Total matches   : 45 (every team plays every other team once)
+- Points system   : Win = 3 pts, Draw = 1 pt, Loss = 0 pts
+- Each week       : Some matches are played, user enters the scores
+
+========================================
+COMMANDS
+========================================
+
+--- init ---
+Usage: Called automatically at program start.
+Asks the user to enter 10 team names one by one.
+After all 10 are entered, prints all teams on screen:
+
+  Teams registered:
+  1. Galatasaray
+  2. Fenerbahce
+  3. Besiktas
+  ...
+  10. Trabzonspor
+
+Teams are fixed after this step. They cannot be changed.
+
+--- enter_match ---
+Usage: User picks two teams and enters the score.
+Asks: "Home team: "
+Asks: "Away team: "
+Asks: "Home team goals: "
+Asks: "Away team goals: "
+Prints the match result:
+
+  === MATCH RESULT ===
+  Galatasaray  2 - 1  Fenerbahce
+  Result: Galatasaray WINS
+  ====================
+
+--- standings ---
+Usage: Prints the current league standings.
+Each team shows: matches played, wins, draws, losses, points.
+Format:
+
+  === STANDINGS ===
+  Galatasaray   P:5  W:3  D:1  L:1  Pts:10
+  Fenerbahce    P:5  W:2  D:2  L:1  Pts:8
+  ...
+  =================
+
+  P   = Played
+  W   = Wins
+  D   = Draws
+  L   = Losses
+  Pts = Points
+
+--- end_season ---
+Usage: Prints the champion when all 45 matches are played.
+Prints:
+  "Season over! Champion: <team_name>"
+If season is not finished yet:
+  "Season in progress. Matches played: <x> / 45"
+
+========================================
+ERROR HANDLING
+========================================
+
+- Empty team name during init:
+    print "Team name cannot be empty. Try again."
+    Ask again.
+
+- Same team entered twice during init:
+    print "This team is already registered. Try again."
+    Ask again.
+
+- Non-number goal entry:
+    print "Please enter a valid number."
+    Ask again. (v1: while loop used, keeps asking until valid number entered)
+
+- Same team selected for both home and away:
+    print "A team cannot play against itself."
+
+- Invalid menu selection:
+    print "Invalid selection. Please enter a number between 0-8."
+    Menu is shown again. (v1: while loop in main menu)
+
+========================================
+VERSION PLAN
+========================================
+
+v0  (Week 5)  : Enter 10 teams, print them. Enter one match result, print it.
+                No loops or lists. Only if/else, def, return, print, input.
+
+v1  (Week 6)  : while loop added to main menu (runs until user exits).
+                takim_gir() uses while loop; empty name and duplicate team errors handled.
+                takim_listele() now works; prints all 10 teams with while loop.
+                mac_gir() uses while loop for invalid goal input; asks again until valid.
+                No lists used. Only while, if/else, def, return, print, input.
+
+v2  (Week 7)  : Calculate points. Win=3, Draw=1, Loss=0.
+
+v3  (Week 10) : Sort standings by points.
+
+v4  (Week 11) : Save and load data from file.
+
+v6  (Week 13) : Full league table with goal difference. Print champion.
+
+========================================
+DATA FORMAT (v4 and later)
+========================================
+
+File: scoreboard.dat
+Format: One match per line, fields separated by |
+Example:
+Galatasaray|Fenerbahce|2|1
+Besiktas|Trabzonspor|0|0
+
+Fields:
+  home_team   : string
+  away_team   : string
+  home_goals  : integer
+  away_goals  : integer

@@ -1,0 +1,41 @@
+PROJECT: mini-scoreboard
+AUTHOR: Omer Faruk Sen (251478117)
+VERSION: v2
+DATE: 2026-03-30
+
+========================================
+OVERVIEW
+========================================
+
+mini-scoreboard is a command-line football league tracker.
+Version 2 adds point calculation: Win=3, Draw=1, Loss=0.
+
+========================================
+SEASON STRUCTURE
+========================================
+
+- Total teams     : 10
+- Total matches   : 45 (every team plays every other team once)
+- Points system   : Win = 3 pts, Draw = 1 pt, Loss = 0 pts
+- Each week       : Some matches are played, user enters the scores
+
+========================================
+CHANGES IN v2
+========================================
+
+- Points are now calculated after each match.
+- Win  = 3 points
+- Draw = 1 point
+- Loss = 0 points
+- standings command shows updated points after each match.
+
+========================================
+VERSION PLAN
+========================================
+
+v0  (Week 5)  : Enter 10 teams, print them. Enter one match result, print it.
+v1  (Week 6)  : while loop added to main menu. Validation loops for input.
+v2  (Week 7)  : Calculate points. Win=3, Draw=1, Loss=0.
+v3  (Week 10) : Sort standings by points.
+v4  (Week 11) : Save and load data from file.
+v6  (Week 13) : Full league table with goal difference. Print champion.

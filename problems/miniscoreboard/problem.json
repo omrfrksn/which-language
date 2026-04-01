@@ -1,0 +1,16 @@
+{
+  "project": "mini-scoreboard",
+  "author": "Omer Faruk Sen",
+  "student_id": "251478117",
+  "versions": ["v0", "v1", "v2"],
+  "language": "Python",
+  "description": "A command-line football league tracker. Users enter 10 teams and match results. Tracks standings across a full season of 45 matches.",
+  "specs": [
+    "SPEC-v1.txt",
+    "SPEC-v2.txt"
+  ],
+  "tests": [
+    "test-v1.sh",
+    "test-v2.sh"
+  ]
+}

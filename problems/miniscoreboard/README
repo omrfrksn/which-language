@@ -1,0 +1,14 @@
+mini-skorboard
+Komut satırı tabanlı futbol ligi takip programı. Öğrenci: Ömer Faruk Şen (251478117)
+
+V0 → V1 Değişiklikleri (Hafta 6)
+V0'da program tek seçim yapıp kapanıyordu, takımlar 10 ayrı değişkende tutuluyordu ve takim_listele() çalışmıyordu.
+V1'de ana menü while döngüsüyle kullanıcı "0" seçene kadar tekrar gösterilecek şekilde güncellendi.
+takim_gir() fonksiyonuna döngüler eklendi; boş isim ve tekrar kayıt hatalarını kontrol ediyor.
+takim_listele() fonksiyonu while döngüsü ile çalışır hale getirildi.
+mac_gir() fonksiyonunda geçersiz gol girişi yapıldığında while döngüsü ile tekrar sorulması sağlandı.
+V1 → V2 Değişiklikleri (Hafta 7)
+Oynanan tüm maçları hafızada tutmak için metin (string) tabanlı global bir mac_gecmisi değişkeni projeye eklendi.
+mac_gir() fonksiyonu, skorları hesapladıktan sonra oynanan maçı bir metin olarak (örn: Galatasaray 2 - 1 Fenerbahce) mac_gecmisi değişkenine yeni bir satır olarak ekleyecek şekilde güncellendi.
+Kullanıcının girdiği maçlar içerisinde belirli bir takımı filtreleyebilmesi için mac_ara() fonksiyonu aktif hale getirildi.
+Arama altyapısı; uzun maç geçmişi metninin split("\n") ile satırlara bölünmesi, bir for döngüsü ile satırların tek tek gezilmesi ve in komutuyla aranan kelimenin eşleştirilmesi mantığıyla kodlandı
